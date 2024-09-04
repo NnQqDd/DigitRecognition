@@ -60,7 +60,7 @@ class DigitClassifier: # A bit different than the one on the notebook.
       h02 = h0 - h01
       digit = np.pad(digit, ((w01, w02), (h01, h02)), "constant", constant_values=0)
       digits.append(digit)
-    digits = np.array(digits)
+    digits = np.array(digits)/255.0
     if(len(digits) > 0):
         predictions = np.argmax(model.predict(reshape(digits), verbose=0), axis=-1)
     else:
